@@ -1,0 +1,8 @@
+site_name: Algae Culture Vulnerability Prototype
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Scientific scope: scientific_scope.md
+  - Economics: economics.md
+  - Problem statement: problem_statement/problem_statement.md

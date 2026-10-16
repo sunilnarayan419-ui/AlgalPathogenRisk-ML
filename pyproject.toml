@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "algae-culture-risk-prototype"
+version = "0.1.0"
+description = "Research prototype for algal transcriptomics and intervention economics"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1.0", "uvicorn[standard]>=0.30,<1.0",
+  "pydantic>=2.8,<3.0", "pandas>=2.2,<3.0", "numpy>=1.26,<3.0",
+  "scikit-learn>=1.5,<2.0", "networkx>=3.3,<4.0", "PyYAML>=6.0,<7.0"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0,<9.0", "httpx>=0.27,<1.0", "ruff>=0.6,<1.0",
+       "mkdocs>=1.6,<2.0", "mkdocs-material>=9.5,<10.0"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

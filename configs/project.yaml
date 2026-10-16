@@ -1,0 +1,18 @@
+project:
+  name: algae-culture-risk-prototype
+  organism: Chlamydomonas reinhardtii
+  geo_accession: GSE128981
+  status: prototype
+scientific_scope:
+  current_dataset_endpoint: strain_or_genotype
+  target_endpoint: culture_collapse
+  target_endpoint_available: false
+  risk_model_validated: false
+data:
+  series_matrix: data/raw/GSE128981_series_matrix.txt
+  supplementary_expression_matrix: data/raw/GSE128981_FPKMs.replicates.v2.tsv.gz
+  expression_scale: FPKM
+model:
+  baseline: HistGradientBoostingClassifier
+  calibration: "Platt/sigmoid only after valid labels and held-out calibration data exist"
+  random_seed: 42
