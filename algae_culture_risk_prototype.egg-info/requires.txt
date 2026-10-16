@@ -1,0 +1,15 @@
+fastapi<1.0,>=0.115
+uvicorn[standard]<1.0,>=0.30
+pydantic<3.0,>=2.8
+pandas<3.0,>=2.2
+numpy<3.0,>=1.26
+scikit-learn<2.0,>=1.5
+networkx<4.0,>=3.3
+PyYAML<7.0,>=6.0
+
+[dev]
+pytest<9.0,>=8.0
+httpx<1.0,>=0.27
+ruff<1.0,>=0.6
+mkdocs<2.0,>=1.6
+mkdocs-material<10.0,>=9.5

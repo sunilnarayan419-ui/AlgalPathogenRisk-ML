@@ -26,6 +26,7 @@ Docs/API: `http://127.0.0.1:8000/docs`; documentation: `mkdocs serve`.
 - `GET /health`
 - `GET /v1/datasets/GSE128981/audit`
 - `POST /v1/economics/break-even`
+- `POST /v1/expression-matrices/validate` — send the raw TSV or `.tsv.gz` as the request body (max 25 MB); returns a data-quality report with SHA-256. Assumes genes in rows and samples in columns; this is reported, not verified.
 
 The API intentionally does not emit biological risk probabilities until valid outcome-labelled data and a validated model exist.
 

@@ -16,3 +16,10 @@ def test_economics_endpoint():
         "pilot_batches": 3})
     assert response.status_code == 200
     assert response.json()["pilot_expected_net_value"] == 300
+
+
+def test_audit_returns_404_when_matrix_missing(monkeypatch, tmp_path):
+    import app.main as main_module
+    monkeypatch.setattr(main_module, "DEFAULT_MATRIX", tmp_path / "missing.txt")
+    response = client.get("/v1/datasets/GSE128981/audit")
+    assert response.status_code == 404

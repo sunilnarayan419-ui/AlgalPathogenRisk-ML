@@ -14,3 +14,34 @@ class BreakEvenResponse(BaseModel):
     pilot_expected_net_value: float
     economically_favourable_under_assumptions: bool
     disclaimer: str
+
+
+class ValidationIssue(BaseModel):
+    code: str
+    message: str
+    count: int
+    examples: list[str] = Field(default_factory=list)
+
+
+class ExpressionStats(BaseModel):
+    min: float | None
+    max: float | None
+    mean: float | None
+    median: float | None
+    zero_fraction: float | None
+    all_zero_genes: int
+
+
+class ExpressionValidationReport(BaseModel):
+    valid: bool
+    sha256: str
+    upload_bytes: int
+    decompressed_bytes: int
+    was_gzip: bool
+    n_genes: int
+    n_samples: int
+    gene_id_column_label: str
+    sample_ids: list[str]
+    issues: list[ValidationIssue]
+    stats: ExpressionStats
+    orientation_note: str
