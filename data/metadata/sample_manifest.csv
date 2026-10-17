@@ -1,0 +1,22 @@
+sample_accession,title,strain,genotype,replicate_in_title,batch,batch_source,growth_condition,treatment,instrument
+GSM3689501,Elow47 rep1,Elow47,SRTA WT,1,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM3689502,Elow47 rep2,Elow47,SRTA WT,2,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM3689503,Elow47 rep3,Elow47,SRTA WT,3,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM3689504,Elow47 rep4,Elow47,SRTA WT,4,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM3689505,UVM4 rep1,UVM4,srta mutant,1,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM3689506,UVM4 rep2,UVM4,srta mutant,2,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM3689507,UVM4 rep3,UVM4,srta mutant,3,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM3689508,UVM4 rep4,UVM4,srta mutant,4,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM3689509,UVM11 rep1,UVM11,srta mutant,1,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM3689510,UVM11 rep2,UVM11,srta mutant,2,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM3689511,UVM11 rep3,UVM11,srta mutant,3,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM3689512,UVM11 rep4,UVM11,srta mutant,4,batch1,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM4733487,UVM11 rep5,UVM11,srta mutant,5,batch2,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM4733488,UVM11 rep6,UVM11,srta mutant,6,batch2,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM4733489,UVM11 rep7,UVM11,srta mutant,7,batch2,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM4733490,UVM11-C1 rep1,UVM11-C1,SRTA complemented,1,batch2,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM4733491,UVM11-C1 rep2,UVM11-C1,SRTA complemented,2,batch2,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM4733492,UVM11-C1 rep3,UVM11-C1,SRTA complemented,3,batch2,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM4733493,UVM11-C9 rep1,UVM11-C9,SRTA complemented,1,batch2,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM4733494,UVM11-C9 rep2,UVM11-C9,SRTA complemented,2,batch2,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
+GSM4733495,UVM11-C9 rep3,UVM11-C9,SRTA complemented,3,batch2,inferred: accession block + series overall_design text,"mid-log growth, photo-heterotrophic",no treatment,Illumina HiSeq 4000
