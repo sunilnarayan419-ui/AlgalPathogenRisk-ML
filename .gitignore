@@ -15,3 +15,12 @@ models/*
 reports/*
 !reports/.gitkeep
 site/
+*.db
+egg-info/
+*.egg-info/
+.coverage
+htmlcov/
+work/
+.nextflow*
+results/
+algae_culture_risk_prototype.egg-info/
