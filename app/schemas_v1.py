@@ -91,3 +91,53 @@ class DatasetAuditResponse(BaseModel):
     n_genes: int
     n_samples: int
     issue_codes: list[str]
+
+
+class DemoTrainRequest(BaseModel):
+    """Trains on SYNTHETIC data to exercise the software. Not biological evidence."""
+    seed: int = 42
+    n_groups: int = Field(60, ge=20, le=500)
+
+
+class PredictRequest(BaseModel):
+    records: list[dict[str, float]] = Field(min_length=1, max_length=1000)
+
+
+class DifferentialExpressionRequest(BaseModel):
+    gene_ids: list[str]
+    sample_ids: list[str]
+    values: list[list[float]] = Field(description="genes x samples FPKM (non-negative)")
+    groups: dict[str, str] = Field(description="sample id -> group")
+    group_a: str
+    group_b: str
+    batches: dict[str, str] | None = None
+    allow_unadjusted: bool = False
+    top_n: int = Field(50, ge=1, le=1000)
+
+
+class EdgeRecord(BaseModel):
+    a: str
+    b: str
+    confidence: float | None = Field(None, ge=0, le=1)
+    evidence_type: Literal["experimental", "curated", "predicted", "text_mining"] | None = None
+
+
+class NetworkSummaryRequest(BaseModel):
+    edges: list[EdgeRecord] = Field(min_length=1, max_length=50000)
+    source_db: str = Field(min_length=1)
+    source_version: str = Field(min_length=1)
+    evidence_type: Literal["experimental", "curated", "predicted", "text_mining"] = "predicted"
+    node: str | None = None
+    radius: int = Field(1, ge=1, le=5)
+    top_k: int = Field(10, ge=1, le=100)
+
+
+class UncertaintyRequest(BaseModel):
+    """Uniform assumption ranges (low, high) for each input; not measured data."""
+    p: tuple[float, float]
+    L: tuple[float, float]
+    C: tuple[float, float]
+    e: tuple[float, float]
+    n: int = Field(20000, ge=100, le=200000)
+    seed: int = 0
+    cycles: int = Field(1, ge=1)
