@@ -1,9 +1,7 @@
 # Intervention economics
 
-Expected avoided loss = baseline collapse probability × intervention effectiveness × collapse loss.
-
-Expected net value = expected avoided loss − intervention cost.
-
-Break-even baseline probability = intervention cost / (intervention effectiveness × collapse loss).
-
-This is a scenario calculation, not a full decision analysis. It omits uncertainty, treatment harms, false-positive costs, timing, and operational constraints. Replace assumptions with facility data before decisions.
+Original single-batch calculator (`/v1/economics/break-even`): expected avoided loss = baseline collapse probability
+x effectiveness x loss; net value = avoided loss - cost; break-even baseline probability = cost / (effectiveness x loss).
+The richer `/api/v1/economics/*` endpoints (break-even, sensitivity, uncertainty with EVPI) are described in
+[Economic decision support](economic_decision_support.md). Both are scenario arithmetic with hypothetical inputs; they omit
+treatment harms, false-positive costs, timing and operational constraints.
