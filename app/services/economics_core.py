@@ -64,3 +64,42 @@ def net_benefit_bounds(p: tuple[float, float], L: tuple[float, float], C: tuple[
     """Exact range of NB over (low, high) intervals: NB rises with p, e, L and falls with C."""
     return {"lower": net_benefit(p[0], L[0], C[1], e[0]),
             "upper": net_benefit(p[1], L[1], C[0], e[1]), "disclaimer": DISCLAIMER}
+
+
+# ---------------------------------------------------------------- uncertainty / value of information
+def monte_carlo_net_benefit(p: tuple[float, float], L: tuple[float, float], C: tuple[float, float],
+                            e: tuple[float, float], n: int = 20000, seed: int = 0,
+                            cycles: int = 1) -> dict:
+    """Uniform ASSUMPTION ranges (low, high) per input -> distribution of net benefit.
+
+    Also returns the expected value of perfect information about the inputs:
+    EVPI = E[max(NB, 0)] - max(E[NB], 0): the most that resolving all uncertainty could be
+    worth when the choice is 'intervene' vs 'do nothing'. Ranges are user assumptions, not data.
+    """
+    import numpy as np
+    for name, (lo, hi) in {"p": p, "L": L, "C": C, "e": e}.items():
+        if lo > hi:
+            raise ValueError(f"{name}: low > high.")
+    _validate(p[0], L[0], C[0], e[0])
+    _validate(p[1], L[1], C[1], e[1])
+    if n < 100:
+        raise ValueError("n must be >= 100.")
+    rng = np.random.default_rng(seed)
+    pp, LL, CC, ee = (rng.uniform(*r, n) for r in (p, L, C, e))
+    nb = cycles * (pp * ee * LL - CC)
+    return {"n": n, "seed": seed, "mean_net_benefit": float(nb.mean()),
+            "p05": float(np.quantile(nb, 0.05)), "p50": float(np.quantile(nb, 0.5)),
+            "p95": float(np.quantile(nb, 0.95)),
+            "prob_net_benefit_positive": float((nb > 0).mean()),
+            "evpi": float(np.maximum(nb, 0).mean() - max(nb.mean(), 0.0)),
+            "disclaimer": DISCLAIMER}
+
+
+def compare_interventions(options: dict[str, dict], p: float, L: float, cycles: int = 1) -> list[dict]:
+    """Rank interventions (each {"C": cost, "e": effectiveness}) by net benefit at (p, L)."""
+    rows = []
+    for name, o in options.items():
+        be = break_even_probability(L, o["C"], o["e"])
+        rows.append({"name": name, "net_benefit": net_benefit(p, L, o["C"], o["e"], cycles),
+                     "break_even_p": be["p_star"], "feasible": be["feasible"]})
+    return sorted(rows, key=lambda r: -r["net_benefit"])
