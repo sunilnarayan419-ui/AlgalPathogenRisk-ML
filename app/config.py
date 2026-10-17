@@ -12,6 +12,7 @@ class Settings:
     env: str
     database_url: str
     log_level: str
+    model_dir: str
 
 
 def get_settings() -> Settings:
@@ -24,4 +25,5 @@ def get_settings() -> Settings:
     level = os.environ.get("ALGAL_LOG_LEVEL", "INFO").upper()
     if level not in {"DEBUG", "INFO", "WARNING", "ERROR"}:
         raise ValueError("ALGAL_LOG_LEVEL must be DEBUG/INFO/WARNING/ERROR.")
-    return Settings(env=env, database_url=url, log_level=level)
+    model_dir = os.environ.get("ALGAL_MODEL_DIR", "models/current")
+    return Settings(env=env, database_url=url, log_level=level, model_dir=model_dir)
