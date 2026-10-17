@@ -1,71 +1,66 @@
-# Algae Culture Vulnerability — Prototype
+# AlgalPathogenRisk-ML / Algae Culture Vulnerability Prototype
 
-Research prototype for *Chlamydomonas reinhardtii* transcriptomics, API delivery, testing, and intervention economics.
+Research prototype for *Chlamydomonas reinhardtii* transcriptomics: GEO ingestion and QC, exploratory statistics, provenance-tagged
+networks, a leakage-safe ML pipeline, a FastAPI backend, SQL provenance storage and hypothetical economic decision support.
 
-## Scientific limitation
+## Scientific scope (read first)
 
-GEO GSE128981 compares basal transcriptomes of wild-type, `srta` mutant, and complemented strains. Its metadata does not label infection, stress-induced culture collapse, or production failure. This prototype therefore does **not** claim to predict real culture-collapse risk. A genotype classifier, if later developed, is a different task.
+The supplied dataset **GEO GSE128981** compares basal transcriptomes of wild-type (Elow47), *srta* mutant (UVM4, UVM11) and complemented
+(UVM11-C1/C9) strains (21 samples, RNA-seq; associated paper PMID 33293544 concerns transgene silencing). It has **no infection or culture-collapse
+labels**, so this project **makes no pathogen-risk prediction**. The ML pipeline is demonstrated on clearly labelled **synthetic** data; its
+scores are uncalibrated and carry no biological meaning. The uploaded series-matrix file has an empty expression table; the FPKM file is
+listed in its header and has not been inspected. See `docs/scientific_scope.md`, `docs/limitations.md`, `docs/implementation_status.md`.
 
-## Quick start (Windows PowerShell)
+## Capabilities (status in `docs/implementation_status.md`)
+
+- GEO series-matrix parser, QC, suitability audit, sample manifest (`app/data/geo.py`, `scripts/audit_*.py`)
+- Exploratory analysis (QC, PCA, correlations) and a batch-aware log2-FPKM group comparison with BH FDR (`scripts/run_analysis.py`)
+- Optional count-based DE (PyDESeq2) with batch-estimability guards (needs raw counts)
+- Experiment design: power, randomization, Welch/BH
+- Networks: STRING/BioGRID loaders, descriptive analysis, DE overlay
+- ML: grouped splits, baselines, validation-chosen threshold, artifacts with checksums, validated prediction, Markdown reports
+- SQL provenance (SQLite default; Alembic) and FastAPI `/api/v1` with `/health` and `/ready`
+- Economics: break-even, sensitivity, Monte Carlo + EVPI (hypothetical inputs)
+
+## Install
 
 ```powershell
-py -3.12 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
+py -3.12 -m venv .venv; .\.venv\Scripts\Activate.ps1
 pip install -e ".[dev]"
-Copy-Item "C:\path\to\GSE128981_series_matrix.txt" "data\raw\GSE128981_series_matrix.txt"
-python scripts\audit_geo_matrix.py --input data\raw\GSE128981_series_matrix.txt --output reports\geo_metadata_audit.json
-pytest
-python scripts\audit_geo_matrix.py --input data\raw\GSE128981_series_matrix.txt.gz --manifest-dir data\metadata --gse128981-batch-rule
-uvicorn app.main:app --reload
+```
+```bash
+python3 -m venv .venv && source .venv/bin/activate && pip install -e ".[dev]"
 ```
 
-Docs/API: `http://127.0.0.1:8000/docs`; documentation: `mkdocs serve`.
+## Data inspection
 
-## Prototype endpoints
+```powershell
+python scripts\audit_geo_matrix.py --input data\raw\GSE128981_series_matrix.txt.gz --manifest-dir data\metadata --gse128981-batch-rule
+python scripts\audit_dataset.py --series-matrix data\raw\GSE128981_series_matrix.txt.gz --out reports\audit
+python scripts\download_geo.py        # optional, needs network: also fetches the FPKM file
+```
 
-- `GET /health`
-- `GET /v1/datasets/GSE128981/audit`
-- `POST /v1/economics/break-even`
-- `POST /v1/expression-matrices/validate` — send the raw TSV or `.tsv.gz` as the request body (max 25 MB); returns a data-quality report with SHA-256. Assumes genes in rows and samples in columns; this is reported, not verified.
+## Analysis, ML, API, tests, docs
 
-The API intentionally does not emit biological risk probabilities until valid outcome-labelled data and a validated model exist.
+```powershell
+python scripts\run_analysis.py --fpkm data\raw\GSE128981_FPKMs.replicates.v2.tsv.gz --metadata data\metadata\sample_metadata_gsm.csv --out reports\exploratory --contrast UVM4 Elow47 --batch-col batch
+python scripts\train_model.py --demo --out models\current --report reports\model_report.json   # SYNTHETIC data
+python scripts\make_model_report.py --artifact-dir models\current --out reports\model_report.md
+uvicorn app.main:app --reload            # http://127.0.0.1:8000/docs ; try GET /ready
+pytest --cov=app
+ruff check app tests scripts
+mkdocs serve                             # or: mkdocs build --strict
+nextflow run workflows/nextflow/main.nf --demo true     # optional; untested
+```
+Example: `curl -X POST http://127.0.0.1:8000/api/v1/models/train-demo -H "Content-Type: application/json" -d "{\"seed\":1}"`
 
-## Added in this iteration
+## Reproducibility and provenance
 
-Experiment design/power/randomization, Welch+BH analysis, exploratory pipeline (`scripts/run_analysis.py`), grouped ML baseline, evidence-tagged networks, SQLAlchemy provenance, `/api/v1` routes, Docker. See `docs/` and `docs/limitations.md`. Scripts: `scripts/download_geo.py`, `scripts/audit_dataset.py`, `scripts/run_analysis.py`.
+Explicit seeds; artifacts store config, data hash, software versions and model SHA-256; datasets keyed by SHA-256. Data: NCBI GEO GSE128981
+(public; check GEO terms before redistributing files; the repository ships only metadata and a synthetic fixture). Citation: Neupert et al.
+2020, Nat Commun 11:6269, doi:10.1038/s41467-020-19983-4. Register: `references/references.json`.
 
-## Added in iteration 3 (written, not yet executed)
+## Current status
 
-Alembic migrations (`alembic upgrade head`), mypy config, lockfile tooling (`scripts/lock_dependencies.ps1`), STRING/BioGRID loaders (`scripts/download_interactions.py`, `scripts/build_network.py`), and count-based differential expression with batch-estimability guards (`scripts/run_count_de.py`, needs raw counts). See `docs/count_based_de.md`, `docs/database_migrations.md`, `docs/biological_networks.md`. Declared the missing `SQLAlchemy` dependency.
-
-## Data
-
-The uploaded GEO series matrix contains metadata and an empty expression-table section. GEO lists this supplementary FPKM file; download it and inspect its schema before modelling:
-https://ftp.ncbi.nlm.nih.gov/geo/series/GSE128nnn/GSE128981/suppl/GSE128981_FPKMs.replicates.v2.tsv.gz
-
-## Stack decisions
-
-- pandas / NumPy: data validation and processing
-- scikit-learn: baseline modelling after labels are defined
-- FastAPI / Pydantic: typed API
-- pytest: automated tests
-- NetworkX: optional interaction/pathway graph analysis
-- Nextflow: add when raw FASTQ processing is in scope
-- Scrapy: not required for GEO; prefer official GEO/SRA resources or APIs
-- MkDocs Material: documentation
-
-## Development sequence
-
-1. Audit data, sample mapping, batches, and expression matrix.
-2. Define a valid research baseline (e.g., genotype classification) separately from collapse prediction.
-3. Obtain independent stress/infection experiments with measured outcomes.
-4. Train and evaluate with splits that prevent replicate/batch leakage.
-5. Calibrate on held-out data and use a defensible production prevalence.
-6. Evaluate interventions using facility-specific costs and uncertainty.
-7. Add external validation, monitoring, model versioning, and operator review.
-
-## References
-
-- GEO GSE128981: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128981
-- Associated PubMed record, PMID 33293544: https://pubmed.ncbi.nlm.nih.gov/33293544/
+Verified in a restricted sandbox: parser, audit, log2-FPKM DE, networks, economics, ML pipeline, docs build, and 82 tests via a stand-in runner.
+**Not yet executed:** HTTP routes, SQL/Alembic, Nextflow, CI, ruff/mypy, download scripts, PyDESeq2. Run `pytest` locally and fix findings.
