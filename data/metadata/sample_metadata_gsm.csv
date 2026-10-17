@@ -1,0 +1,22 @@
+sample_id,group,genotype,batch
+GSM3689501,Elow47,SRTA WT,batch1
+GSM3689502,Elow47,SRTA WT,batch1
+GSM3689503,Elow47,SRTA WT,batch1
+GSM3689504,Elow47,SRTA WT,batch1
+GSM3689505,UVM4,srta mutant,batch1
+GSM3689506,UVM4,srta mutant,batch1
+GSM3689507,UVM4,srta mutant,batch1
+GSM3689508,UVM4,srta mutant,batch1
+GSM3689509,UVM11,srta mutant,batch1
+GSM3689510,UVM11,srta mutant,batch1
+GSM3689511,UVM11,srta mutant,batch1
+GSM3689512,UVM11,srta mutant,batch1
+GSM4733487,UVM11,srta mutant,batch2
+GSM4733488,UVM11,srta mutant,batch2
+GSM4733489,UVM11,srta mutant,batch2
+GSM4733490,UVM11-C1,SRTA complemented,batch2
+GSM4733491,UVM11-C1,SRTA complemented,batch2
+GSM4733492,UVM11-C1,SRTA complemented,batch2
+GSM4733493,UVM11-C9,SRTA complemented,batch2
+GSM4733494,UVM11-C9,SRTA complemented,batch2
+GSM4733495,UVM11-C9,SRTA complemented,batch2
