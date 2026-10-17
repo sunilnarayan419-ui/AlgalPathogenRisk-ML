@@ -4,10 +4,12 @@ theme:
 nav:
   - Home: index.md
   - Scientific scope: scientific_scope.md
+  - Implementation status: implementation_status.md
   - Installation: installation.md
   - Architecture: architecture.md
   - Data dictionary: data_dictionary.md
   - Methodology: scientific_methodology.md
+  - Data analysis: data_analysis.md
   - Experimental design: experiment_design.md
   - Model validation: model_validation.md
   - Networks: biological_networks.md
