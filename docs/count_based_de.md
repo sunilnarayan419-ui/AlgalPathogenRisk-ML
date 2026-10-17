@@ -1,7 +1,6 @@
 # Count-based differential expression
 
-**Status: written, not executed.** `app/experiments/count_de.py`, `app/data/counts.py` and
-`scripts/run_count_de.py` have never been run by their authors, and no raw count matrix for
+**Status:** the guard logic (counts validation, size factors, estimability) is covered by unit tests that were executed; the PyDESeq2 model call and `scripts/run_count_de.py` end-to-end have not been run. No raw count matrix for GSE128981 exists in this repository, and no raw count matrix for
 GSE128981 exists in this repository. The GEO supplementary file is FPKM, which is **not** valid input.
 
 ## Getting raw counts (not implemented here)
