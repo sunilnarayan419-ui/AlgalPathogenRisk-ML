@@ -21,3 +21,13 @@ python scripts\build_network.py --string data\raw\interactions\string_3055_links
 ```
 
 Centrality is descriptive, not causal. Enrichment claims need a background universe, identifier mapping and multiple-testing correction (not implemented).
+
+
+## Analysis (`app/networks/analysis.py`, verified on synthetic graphs)
+* `graph_from_edge_records` builds a graph from caller-supplied edges (provenance mandatory; duplicates rejected).
+* `summarize`: nodes, edges, density, components, top degree, betweenness (sampled above 3000 nodes), edge counts by evidence type and source.
+* `neighborhood`, `filter_by_confidence` (edges without a reported confidence are kept).
+* `overlay_de`: candidate modules = connected components among significant genes (BH < alpha) plus a seeded permutation p-value for edge
+  density among them versus random equal-sized sets of tested network genes. Hypothesis-generating only; identifier mismatch silently
+  shrinks `n_tested_in_network`.
+* Records the network in SQL via `register_network` (metadata only; GraphML stays on disk). API: `POST /api/v1/networks/summary`.
