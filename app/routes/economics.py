@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 
 from app.database import repositories as repo
 from app.database.connection import get_db
-from app.schemas_v1 import BreakEvenV1, SensitivityRequest
+from app.schemas_v1 import BreakEvenV1, SensitivityRequest, UncertaintyRequest
 from app.services import economics_core as ec
 
 router = APIRouter(prefix="/api/v1/economics", tags=["economics"])
@@ -35,3 +35,13 @@ def sensitivity(body: SensitivityRequest):
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     return {"grid": grid, "disclaimer": ec.DISCLAIMER}
+
+
+@router.post("/uncertainty")
+def uncertainty(body: UncertaintyRequest):
+    """Monte Carlo net benefit over ASSUMED uniform ranges, with EVPI. Hypothetical inputs."""
+    try:
+        return ec.monte_carlo_net_benefit(body.p, body.L, body.C, body.e, n=body.n,
+                                          seed=body.seed, cycles=body.cycles)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
