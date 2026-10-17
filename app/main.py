@@ -1,5 +1,10 @@
+import logging
 from pathlib import Path
+
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import JSONResponse
+
+from app.routes import datasets, economics, experiments, models, networks
 from app.schemas import BreakEvenRequest, BreakEvenResponse, ExpressionValidationReport
 from app.services.economics import calculate_break_even
 from app.services.expression import (
@@ -13,6 +18,17 @@ app = FastAPI(
     description="Research prototype; no validated culture-collapse prediction model is included."
 )
 DEFAULT_MATRIX = Path("data/raw/GSE128981_series_matrix.txt")
+log = logging.getLogger("app")
+for _router in (datasets.router, experiments.router, models.router, networks.router,
+                economics.router):
+    app.include_router(_router)
+
+
+@app.exception_handler(Exception)
+async def unhandled(_request: Request, exc: Exception):
+    log.exception("Unhandled error")  # details go to logs, never to the client
+    return JSONResponse(status_code=500, content={"detail": "Internal server error."})
+
 
 @app.get("/health")
 def health():
