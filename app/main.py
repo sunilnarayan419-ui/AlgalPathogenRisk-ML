@@ -4,7 +4,9 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
 
-from app.routes import datasets, economics, experiments, models, networks
+from app.config import get_settings
+from app.ml import pipeline as mlp
+from app.routes import analysis, datasets, economics, experiments, models, networks
 from app.schemas import BreakEvenRequest, BreakEvenResponse, ExpressionValidationReport
 from app.services.economics import calculate_break_even
 from app.services.expression import (
@@ -19,7 +21,7 @@ app = FastAPI(
 )
 DEFAULT_MATRIX = Path("data/raw/GSE128981_series_matrix.txt")
 log = logging.getLogger("app")
-for _router in (datasets.router, experiments.router, models.router, networks.router,
+for _router in (analysis.router, datasets.router, experiments.router, models.router, networks.router,
                 economics.router):
     app.include_router(_router)
 
@@ -32,8 +34,22 @@ async def unhandled(_request: Request, exc: Exception):
 
 @app.get("/health")
 def health():
+    """Liveness only: the process is up. See /ready for component status."""
     return {"status": "ok", "version": app.version, "risk_model_loaded": False,
             "biological_validation": "not_established"}
+
+
+@app.get("/ready")
+def ready():
+    """Readiness: reports each component; never claims the ML system is validated."""
+    try:
+        _, meta = mlp.load_artifact(get_settings().model_dir)
+        model = {"loaded": True, "name": meta["model_name"], "synthetic": meta["synthetic"],
+                 "calibrated": meta["calibrated"]}
+    except mlp.ModelArtifactError as exc:
+        model = {"loaded": False, "reason": str(exc)}
+    return {"api": "ok", "model_artifact": model, "risk_model_validated": False,
+            "geo_matrix_present": DEFAULT_MATRIX.is_file()}
 
 @app.get("/v1/datasets/GSE128981/audit")
 def audit_dataset():
