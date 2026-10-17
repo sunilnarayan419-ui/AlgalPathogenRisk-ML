@@ -1,28 +1,44 @@
-# Installation (Windows PowerShell)
+# Installation
 
+## Windows PowerShell
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
 pip install -e ".[dev]"
-Copy-Item .env.example .env
-python scripts\download_geo.py                      # needs network; skip if you already have the file
-python scripts\audit_dataset.py --input data\raw\GSE128981_FPKMs.replicates.v2.tsv.gz
-python scripts\run_analysis.py --input data\raw\GSE128981_FPKMs.replicates.v2.tsv.gz
-pytest --cov=app; ruff check .; mkdocs build --strict
-uvicorn app.main:app --reload                       # http://127.0.0.1:8000/docs
+Copy-Item .env.example .env        # optional; defaults work
 ```
+## Linux / macOS
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+```
+Optional extras: `.[de]` (PyDESeq2), `.[postgres]`.
 
-If the audit reports a non-numeric column (e.g. gene annotation), re-run with `--drop-columns <name>`; the real header has not been inspected by the authors. Metadata for grouping: CSV with `sample_id,group[,batch]` built from the GEO sample manifest; groups are never guessed.
+## Data
+Place `GSE128981_series_matrix.txt.gz` (and, when you have it, `GSE128981_FPKMs.replicates.v2.tsv.gz`) in `data/raw/`,
+or run `python scripts/download_geo.py` (needs network). See [Data analysis](data_analysis.md).
 
-## Added tooling
-
+## Check the install
 ```powershell
-pip install -e ".[dev,de]"          # de = PyDESeq2 for count-based DE; add postgres for PostgreSQL
-alembic upgrade head                # create/upgrade the database schema
-mypy                                # type check (lenient config)
-.\scripts\lock_dependencies.ps1     # generate requirements.lock / requirements-dev.lock, then commit them
-python scripts\download_interactions.py --taxon 3055
-python scripts\build_network.py --string <file> --string-version v12.0 --expression <fpkm.tsv.gz>
-python scripts\run_count_de.py --counts <raw_counts.tsv> --metadata data\metadata\sample_manifest.csv --group-col strain --batch-col batch --list-estimable
+pytest                                   # full suite
+ruff check app tests scripts
+mkdocs build --strict                    # or: mkdocs serve
+python scripts\train_model.py --demo     # synthetic ML demo
+uvicorn app.main:app --reload            # http://127.0.0.1:8000/docs
 ```
-Note: `SQLAlchemy` and `alembic` are now declared dependencies (SQLAlchemy was imported but previously not listed in `pyproject.toml`).
+
+## Configuration (environment variables; all optional)
+| Variable | Default | Meaning |
+|---|---|---|
+| `ALGAL_ENV` | `development` | `development`, `production` or `test` |
+| `ALGAL_DATABASE_URL` | `sqlite:///./algal.db` | SQLite or PostgreSQL URL |
+| `ALGAL_LOG_LEVEL` | `INFO` | `DEBUG`/`INFO`/`WARNING`/`ERROR` |
+| `ALGAL_MODEL_DIR` | `models/current` | model artifact directory |
+
+## Troubleshooting
+- `ModuleNotFoundError: app` when running a script: run from the repo root (scripts add the root to `sys.path`).
+- `FPKM validation failed: non-numeric...`: the file has an annotation column; use `--drop-columns <name>`.
+- `/ready` shows `model_artifact.loaded: false`: run `POST /api/v1/models/train-demo` or `scripts/train_model.py`.
+- Model load error mentioning scikit-learn version: retrain with the installed version.
+- Database already created by the API, now using Alembic: `alembic stamp 0001` then `alembic upgrade head`.
