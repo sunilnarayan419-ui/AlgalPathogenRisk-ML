@@ -1,0 +1,81 @@
+{
+  "generated": "2026-10-17",
+  "note": "Items not marked as located were carried over and must not be treated as verified.",
+  "references": [
+    {
+      "key": "neupert2020",
+      "citation": "Neupert J, Gallaher SD, Lu Y, et al. An epigenetic gene silencing pathway selectively acting on transgenic DNA in the green alga Chlamydomonas. Nat Commun 2020;11:6269. doi:10.1038/s41467-020-19983-4",
+      "pmid": "33293544",
+      "pmcid": "PMC7722844",
+      "supports": "Publication associated with GSE128981 (PMID matches the series header; author list matches GEO contributors). Studies transgene silencing by a sirtuin-type histone deacetylase in UVM4/UVM11; NOT infection or culture collapse.",
+      "verification": "title, DOI, PMID/PMCID and abstract located via web search on 2026-10-17"
+    },
+    {
+      "key": "geo_gse128981",
+      "citation": "NCBI GEO accession GSE128981: RNA-Seq expression profiling of srta mutant and WT strains of Chlamydomonas reinhardtii",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128981",
+      "supports": "Dataset provenance; sample metadata",
+      "verification": "series-matrix metadata parsed from the supplied file (21 samples, GPL26362, taxid 3055); supplementary FPKM file listed in header but not inspected"
+    },
+    {
+      "key": "conesa2016",
+      "citation": "Conesa A et al. A survey of best practices for RNA-seq data analysis. Genome Biol 2016;17:13. doi:10.1186/s13059-016-0881-8",
+      "supports": "RNA-seq analysis practice",
+      "verification": "recorded by earlier authors; NOT re-checked in this revision"
+    },
+    {
+      "key": "love2014",
+      "citation": "Love MI, Huber W, Anders S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 2014;15:550. doi:10.1186/s13059-014-0550-8",
+      "supports": "Count-based DE (size factors, negative-binomial Wald test)",
+      "verification": "recorded by earlier authors; NOT re-checked in this revision"
+    },
+    {
+      "key": "muzellec2023",
+      "citation": "Muzellec B et al. PyDESeq2: a python package for bulk RNA-seq differential expression analysis. Bioinformatics 2023",
+      "supports": "Python DESeq2 implementation used optionally by count_de.py",
+      "verification": "recorded by earlier authors; NOT re-checked in this revision; volume/pages/DOI not recorded"
+    },
+    {
+      "key": "bh1995",
+      "citation": "Benjamini Y, Hochberg Y. Controlling the false discovery rate. J R Stat Soc B 1995;57:289-300. doi:10.1111/j.2517-6161.1995.tb02031.x",
+      "supports": "BH FDR correction",
+      "verification": "recorded by earlier authors; NOT re-checked in this revision"
+    },
+    {
+      "key": "cohen1988",
+      "citation": "Cohen J. Statistical Power Analysis for the Behavioral Sciences, 2nd ed. Erlbaum, 1988",
+      "supports": "Effect sizes (d, h)",
+      "verification": "recorded by earlier authors; NOT re-checked in this revision"
+    },
+    {
+      "key": "kapoor2023",
+      "citation": "Kapoor S, Narayanan A. Leakage and the reproducibility crisis in machine-learning-based science. Patterns 2023",
+      "supports": "Leakage risk framing for ML evaluation",
+      "verification": "recorded by earlier authors; NOT re-checked in this revision"
+    },
+    {
+      "key": "leek2010",
+      "citation": "Leek JT et al. Tackling the widespread and critical impact of batch effects in high-throughput data. Nat Rev Genet 2010;11:733-739. doi:10.1038/nrg2825",
+      "supports": "Batch-effect caution",
+      "verification": "recorded by earlier authors; NOT re-checked in this revision"
+    },
+    {
+      "key": "niculescu2005",
+      "citation": "Niculescu-Mizil A, Caruana R. Predicting good probabilities with supervised learning. ICML 2005",
+      "supports": "Probability calibration",
+      "verification": "recorded by earlier authors; NOT re-checked in this revision"
+    },
+    {
+      "key": "oughtred2021",
+      "citation": "Oughtred R et al. The BioGRID database: a comprehensive biomedical resource of curated protein, genetic, and chemical interactions. Protein Sci 2021",
+      "supports": "BioGRID loader context",
+      "verification": "recorded by earlier authors; NOT re-checked in this revision; TAB3 column names unchecked against real file"
+    },
+    {
+      "key": "szklarczyk2023",
+      "citation": "Szklarczyk D et al. The STRING database in 2023. Nucleic Acids Res 2023",
+      "supports": "STRING loader context",
+      "verification": "NOT verified; details from earlier notes"
+    }
+  ]
+}
