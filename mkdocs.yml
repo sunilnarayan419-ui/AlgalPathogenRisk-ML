@@ -4,5 +4,21 @@ theme:
 nav:
   - Home: index.md
   - Scientific scope: scientific_scope.md
+  - Installation: installation.md
+  - Architecture: architecture.md
+  - Data dictionary: data_dictionary.md
+  - Methodology: scientific_methodology.md
+  - Experimental design: experiment_design.md
+  - Model validation: model_validation.md
+  - Networks: biological_networks.md
+  - Count-based DE: count_based_de.md
+  - Database migrations: database_migrations.md
   - Economics: economics.md
+  - Economic decision support: economic_decision_support.md
+  - API: api_reference.md
+  - Reproducibility: reproducibility.md
+  - Testing: testing.md
+  - Roadmap: roadmap.md
+  - Limitations: limitations.md
+  - References: references.md
   - Problem statement: problem_statement/problem_statement.md

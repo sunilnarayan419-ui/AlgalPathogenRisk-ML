@@ -16,6 +16,7 @@ pip install -e ".[dev]"
 Copy-Item "C:\path\to\GSE128981_series_matrix.txt" "data\raw\GSE128981_series_matrix.txt"
 python scripts\audit_geo_matrix.py --input data\raw\GSE128981_series_matrix.txt --output reports\geo_metadata_audit.json
 pytest
+python scripts\audit_geo_matrix.py --input data\raw\GSE128981_series_matrix.txt.gz --manifest-dir data\metadata --gse128981-batch-rule
 uvicorn app.main:app --reload
 ```
 
@@ -29,6 +30,14 @@ Docs/API: `http://127.0.0.1:8000/docs`; documentation: `mkdocs serve`.
 - `POST /v1/expression-matrices/validate` — send the raw TSV or `.tsv.gz` as the request body (max 25 MB); returns a data-quality report with SHA-256. Assumes genes in rows and samples in columns; this is reported, not verified.
 
 The API intentionally does not emit biological risk probabilities until valid outcome-labelled data and a validated model exist.
+
+## Added in this iteration
+
+Experiment design/power/randomization, Welch+BH analysis, exploratory pipeline (`scripts/run_analysis.py`), grouped ML baseline, evidence-tagged networks, SQLAlchemy provenance, `/api/v1` routes, Docker. See `docs/` and `docs/limitations.md`. Scripts: `scripts/download_geo.py`, `scripts/audit_dataset.py`, `scripts/run_analysis.py`.
+
+## Added in iteration 3 (written, not yet executed)
+
+Alembic migrations (`alembic upgrade head`), mypy config, lockfile tooling (`scripts/lock_dependencies.ps1`), STRING/BioGRID loaders (`scripts/download_interactions.py`, `scripts/build_network.py`), and count-based differential expression with batch-estimability guards (`scripts/run_count_de.py`, needs raw counts). See `docs/count_based_de.md`, `docs/database_migrations.md`, `docs/biological_networks.md`. Declared the missing `SQLAlchemy` dependency.
 
 ## Data
 
