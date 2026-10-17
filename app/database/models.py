@@ -99,3 +99,31 @@ class ReferenceRecord(Base):
     url: Mapped[str | None] = mapped_column(Text)
     verified: Mapped[bool] = mapped_column(Boolean, default=False)
     supports: Mapped[str | None] = mapped_column(Text)
+
+
+class ModelVersion(Base):
+    """A trained artifact (file stays on disk; only path, checksum and metadata are stored)."""
+    __tablename__ = "model_versions"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(128))
+    sha256: Mapped[str] = mapped_column(String(64), unique=True)
+    artifact_path: Mapped[str] = mapped_column(Text)
+    target: Mapped[str] = mapped_column(String(128))
+    synthetic: Mapped[bool] = mapped_column(Boolean, default=True)
+    calibrated: Mapped[bool] = mapped_column(Boolean, default=False)
+    feature_schema: Mapped[dict] = mapped_column(JSON)
+    metrics: Mapped[dict] = mapped_column(JSON)
+    created_utc: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), default=_now)
+
+
+class NetworkRecord(Base):
+    """Metadata of a network file (the graph itself is stored as GraphML on disk)."""
+    __tablename__ = "network_records"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(128), unique=True)
+    sources: Mapped[dict] = mapped_column(JSON)
+    n_nodes: Mapped[int] = mapped_column(Integer)
+    n_edges: Mapped[int] = mapped_column(Integer)
+    file_path: Mapped[str | None] = mapped_column(Text)
+    file_sha256: Mapped[str | None] = mapped_column(String(64))
+    created_utc: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), default=_now)
