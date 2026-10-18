@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 1556" width="1120" height="1556" role="img" aria-labelledby="t d">
+<title id="t">AlgalPathogenRisk-ML research workflow with scientific decision gates</title>
+<desc id="d">Vertical research pipeline from biological question to research decision. Six validation gates each branch to a stopping outcome such as STOP, EXPLORATORY ANALYSIS ONLY, DATA INSUFFICIENT, BIOLOGICAL VALIDATION REQUIRED, UNCALIBRATED SCORES or SCENARIO ANALYSIS ONLY. A right-hand column names the repository modules that implement each stage. The pathogen-risk path ends at Gate 3 for GSE128981 because the dataset has no outcome labels.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#355C7D"/></marker><marker id="arn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B23A2B"/></marker></defs>
+<rect width="1120" height="1556" rx="14" fill="#FFFFFF" stroke="#C9D5E1" stroke-width="1.5"/>
+<text x="40" y="40" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#0B1F3A" text-anchor="start">AlgalPathogenRisk-ML: research workflow and decision gates</text>
+<text x="40" y="64" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" fill="#44566B" text-anchor="start">Scientific pipeline (left) · stopping outcomes (centre) · implementing repository modules (right)</text>
+<rect x="40" y="86" width="20" height="14" rx="3" fill="#E3F0FB" stroke="#2E6DA4" stroke-width="1.8"/>
+<text x="67" y="98" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Data input</text>
+<rect x="168.0" y="86" width="20" height="14" rx="3" fill="#DDF3F1" stroke="#12807F" stroke-width="1.8"/>
+<text x="195.0" y="98" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Computation</text>
+<rect x="302.6" y="86" width="20" height="14" rx="3" fill="#FFF1D6" stroke="#C98512" stroke-width="1.8"/>
+<text x="329.6" y="98" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Validation gate</text>
+<rect x="463.6" y="86" width="20" height="14" rx="3" fill="#E4F4DC" stroke="#3C8D40" stroke-width="1.8"/>
+<text x="490.6" y="98" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Analytical output</text>
+<rect x="637.8" y="86" width="20" height="14" rx="3" fill="#E9E6F5" stroke="#5B4B9A" stroke-width="1.8"/>
+<text x="664.8" y="98" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Decision support</text>
+<rect x="805.4" y="86" width="20" height="14" rx="3" fill="#FFFFFF" stroke="#B23A2B" stroke-width="1.8" stroke-dasharray="4 3"/>
+<text x="832.4" y="98" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Unvalidated / synthetic</text>
+<rect x="40" y="150" width="340" height="60" rx="10" fill="#FFFFFF" stroke="#B23A2B" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="54" y="175" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F3A" text-anchor="start">1  Biological question</text>
+<text x="54" y="196" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Motivating hypothesis (unvalidated)</text>
+<line x1="210.0" y1="211" x2="210.0" y2="238" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="40" y="240" width="340" height="60" rx="10" fill="#E3F0FB" stroke="#2E6DA4" stroke-width="2"/>
+<text x="54" y="265" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F3A" text-anchor="start">2  Data acquisition</text>
+<text x="54" y="286" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">GEO series matrix + FPKM table</text>
+<line x1="210.0" y1="301" x2="210.0" y2="328" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="775" y="246.0" width="320" height="48" rx="8" fill="#F4F7FA" stroke="#8AA0B5" stroke-width="2"/>
+<text x="785" y="266.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1E3550" text-anchor="start">scripts/download_geo.py</text>
+<text x="785" y="284.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="10.5" font-weight="400" fill="#44566B" text-anchor="start">app/data/geo.py, app/data/loader.py</text>
+<polygon points="62,330 358,330 380,364.0 358,398 62,398 40,364.0" fill="#FFF1D6" stroke="#C98512" stroke-width="2"/>
+<text x="210.0" y="359" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">Gate 1: measurements and sample</text>
+<text x="210.0" y="379" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">annotations valid?</text>
+<line x1="210.0" y1="399" x2="210.0" y2="426" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<text x="218.0" y="417" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#2C6E3A" text-anchor="start">yes</text>
+<line x1="382" y1="364.0" x2="448" y2="364.0" stroke="#B23A2B" stroke-width="2" marker-end="url(#arn)"/>
+<text x="390" y="358.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B23A2B" text-anchor="start">no</text>
+<rect x="450" y="337.0" width="270" height="54" rx="10" fill="#FDECE8" stroke="#B23A2B" stroke-width="2"/>
+<text x="585.0" y="360.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#8E2A1E" text-anchor="middle">STOP</text>
+<text x="585.0" y="378.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#5A2A24" text-anchor="middle">Repair or replace the data</text>
+<rect x="775" y="340.0" width="320" height="48" rx="8" fill="#F4F7FA" stroke="#8AA0B5" stroke-width="2"/>
+<text x="785" y="360.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1E3550" text-anchor="start">scripts/audit_dataset.py</text>
+<text x="785" y="378.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="10.5" font-weight="400" fill="#44566B" text-anchor="start">app/services/expression.py</text>
+<rect x="40" y="428" width="340" height="60" rx="10" fill="#DDF3F1" stroke="#12807F" stroke-width="2"/>
+<text x="54" y="453" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F3A" text-anchor="start">3  Exploratory analysis</text>
+<text x="54" y="474" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">QC, log2 transform, correlations, PCA</text>
+<line x1="210.0" y1="489" x2="210.0" y2="516" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="775" y="434.0" width="320" height="48" rx="8" fill="#F4F7FA" stroke="#8AA0B5" stroke-width="2"/>
+<text x="785" y="454.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1E3550" text-anchor="start">scripts/run_analysis.py</text>
+<text x="785" y="472.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="10.5" font-weight="400" fill="#44566B" text-anchor="start">app/analysis/exploratory.py</text>
+<polygon points="62,518 358,518 380,552.0 358,586 62,586 40,552.0" fill="#FFF1D6" stroke="#C98512" stroke-width="2"/>
+<text x="210.0" y="547" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">Gate 2: design supports the intended</text>
+<text x="210.0" y="567" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">statistics?</text>
+<line x1="210.0" y1="587" x2="210.0" y2="614" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<text x="218.0" y="605" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#2C6E3A" text-anchor="start">yes</text>
+<line x1="382" y1="552.0" x2="448" y2="552.0" stroke="#B23A2B" stroke-width="2" marker-end="url(#arn)"/>
+<text x="390" y="546.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B23A2B" text-anchor="start">no</text>
+<rect x="450" y="525.0" width="270" height="54" rx="10" fill="#FDECE8" stroke="#B23A2B" stroke-width="2"/>
+<text x="585.0" y="548.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#8E2A1E" text-anchor="middle">EXPLORATORY ANALYSIS ONLY</text>
+<text x="585.0" y="566.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#5A2A24" text-anchor="middle">Batch confounded or too few replicates</text>
+<rect x="775" y="528.0" width="320" height="48" rx="8" fill="#F4F7FA" stroke="#8AA0B5" stroke-width="2"/>
+<text x="785" y="548.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1E3550" text-anchor="start">batch-estimability guard</text>
+<text x="785" y="566.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="10.5" font-weight="400" fill="#44566B" text-anchor="start">app/experiments/count_de.py</text>
+<rect x="40" y="616" width="340" height="60" rx="10" fill="#E4F4DC" stroke="#3C8D40" stroke-width="2"/>
+<text x="54" y="641" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F3A" text-anchor="start">4  Statistical analysis</text>
+<text x="54" y="662" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">log2-FPKM OLS + BH FDR; count DE needs counts</text>
+<line x1="210.0" y1="677" x2="210.0" y2="704" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="775" y="622.0" width="320" height="48" rx="8" fill="#F4F7FA" stroke="#8AA0B5" stroke-width="2"/>
+<text x="785" y="642.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1E3550" text-anchor="start">app/analysis/de_fpkm.py</text>
+<text x="785" y="660.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="10.5" font-weight="400" fill="#44566B" text-anchor="start">app/experiments/ (power, Welch)</text>
+<polygon points="62,706 358,706 380,740.0 358,774 62,774 40,740.0" fill="#FFF1D6" stroke="#C98512" stroke-width="2"/>
+<text x="210.0" y="735" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">Gate 3: outcome labels available and</text>
+<text x="210.0" y="755" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">meaningful?</text>
+<line x1="210.0" y1="775" x2="210.0" y2="802" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<text x="218.0" y="793" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#2C6E3A" text-anchor="start">yes</text>
+<line x1="382" y1="740.0" x2="448" y2="740.0" stroke="#B23A2B" stroke-width="2" marker-end="url(#arn)"/>
+<text x="390" y="734.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B23A2B" text-anchor="start">no</text>
+<rect x="450" y="713.0" width="270" height="54" rx="10" fill="#FDECE8" stroke="#B23A2B" stroke-width="2"/>
+<text x="585.0" y="736.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#8E2A1E" text-anchor="middle">DATA INSUFFICIENT</text>
+<text x="585.0" y="754.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#5A2A24" text-anchor="middle">No infection / collapse labels in GSE128981</text>
+<rect x="775" y="716.0" width="320" height="48" rx="8" fill="#F4F7FA" stroke="#8AA0B5" stroke-width="2"/>
+<text x="785" y="736.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1E3550" text-anchor="start">RISK_MODEL_STATUS.available = False</text>
+<text x="785" y="754.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="10.5" font-weight="400" fill="#44566B" text-anchor="start">app/ml/baseline.py</text>
+<rect x="40" y="804" width="340" height="60" rx="10" fill="#DDF3F1" stroke="#B23A2B" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="54" y="829" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F3A" text-anchor="start">5  ML evaluation</text>
+<text x="54" y="850" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Grouped splits; software demo on SYNTHETIC data</text>
+<line x1="210.0" y1="865" x2="210.0" y2="892" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="775" y="810.0" width="320" height="48" rx="8" fill="#F4F7FA" stroke="#8AA0B5" stroke-width="2"/>
+<text x="785" y="830.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1E3550" text-anchor="start">scripts/train_model.py</text>
+<text x="785" y="848.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="10.5" font-weight="400" fill="#44566B" text-anchor="start">app/ml/pipeline.py; Nextflow: train only</text>
+<polygon points="62,894 358,894 380,928.0 358,962 62,962 40,928.0" fill="#FFF1D6" stroke="#C98512" stroke-width="2"/>
+<text x="210.0" y="923" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">Gate 4: independent evidence of</text>
+<text x="210.0" y="943" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">predictive performance?</text>
+<line x1="210.0" y1="963" x2="210.0" y2="990" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<text x="218.0" y="981" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#2C6E3A" text-anchor="start">yes</text>
+<line x1="382" y1="928.0" x2="448" y2="928.0" stroke="#B23A2B" stroke-width="2" marker-end="url(#arn)"/>
+<text x="390" y="922.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B23A2B" text-anchor="start">no</text>
+<rect x="450" y="901.0" width="270" height="54" rx="10" fill="#FDECE8" stroke="#B23A2B" stroke-width="2"/>
+<text x="585.0" y="924.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#8E2A1E" text-anchor="middle">BIOLOGICAL VALIDATION REQUIRED</text>
+<text x="585.0" y="942.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#5A2A24" text-anchor="middle">Needs external, outcome-labelled cultures</text>
+<polygon points="62,992 358,992 380,1026.0 358,1060 62,1060 40,1026.0" fill="#FFF1D6" stroke="#C98512" stroke-width="2"/>
+<text x="210.0" y="1021" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">Gate 5: calibrated at the target</text>
+<text x="210.0" y="1041" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">prevalence?</text>
+<line x1="210.0" y1="1061" x2="210.0" y2="1088" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<text x="218.0" y="1079" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#2C6E3A" text-anchor="start">yes</text>
+<line x1="382" y1="1026.0" x2="448" y2="1026.0" stroke="#B23A2B" stroke-width="2" marker-end="url(#arn)"/>
+<text x="390" y="1020.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B23A2B" text-anchor="start">no</text>
+<rect x="450" y="999.0" width="270" height="54" rx="10" fill="#FDECE8" stroke="#B23A2B" stroke-width="2"/>
+<text x="585.0" y="1022.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#8E2A1E" text-anchor="middle">UNCALIBRATED SCORES</text>
+<text x="585.0" y="1040.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#5A2A24" text-anchor="middle">Scores must not be read as probabilities</text>
+<rect x="775" y="1002.0" width="320" height="48" rx="8" fill="#F4F7FA" stroke="#8AA0B5" stroke-width="2"/>
+<text x="785" y="1022.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1E3550" text-anchor="start">artifact: calibrated = false</text>
+<text x="785" y="1040.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="10.5" font-weight="400" fill="#44566B" text-anchor="start">app/ml/pipeline.py</text>
+<rect x="40" y="1090" width="340" height="60" rx="10" fill="#FFFFFF" stroke="#B23A2B" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="54" y="1115" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F3A" text-anchor="start">6  Biological interpretation</text>
+<text x="54" y="1136" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Descriptive networks; candidate hypotheses</text>
+<line x1="210.0" y1="1151" x2="210.0" y2="1178" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="775" y="1096.0" width="320" height="48" rx="8" fill="#F4F7FA" stroke="#8AA0B5" stroke-width="2"/>
+<text x="785" y="1116.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1E3550" text-anchor="start">app/networks/</text>
+<text x="785" y="1134.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="10.5" font-weight="400" fill="#44566B" text-anchor="start">scripts/build_network.py (STRING, BioGRID)</text>
+<rect x="40" y="1180" width="340" height="60" rx="10" fill="#E9E6F5" stroke="#5B4B9A" stroke-width="2"/>
+<text x="54" y="1205" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F3A" text-anchor="start">7  Economic decision analysis</text>
+<text x="54" y="1226" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Expected-loss scenario arithmetic</text>
+<line x1="210.0" y1="1241" x2="210.0" y2="1268" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="775" y="1186.0" width="320" height="48" rx="8" fill="#F4F7FA" stroke="#8AA0B5" stroke-width="2"/>
+<text x="785" y="1206.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1E3550" text-anchor="start">app/services/economics_core.py</text>
+<text x="785" y="1224.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="10.5" font-weight="400" fill="#44566B" text-anchor="start">hypothetical inputs only</text>
+<polygon points="62,1270 358,1270 380,1304.0 358,1338 62,1338 40,1304.0" fill="#FFF1D6" stroke="#C98512" stroke-width="2"/>
+<text x="210.0" y="1299" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">Gate 6: evidence supports an</text>
+<text x="210.0" y="1319" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0B1F3A" text-anchor="middle">intervention recommendation?</text>
+<line x1="210.0" y1="1339" x2="210.0" y2="1366" stroke="#355C7D" stroke-width="2" marker-end="url(#ar)"/>
+<text x="218.0" y="1357" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#2C6E3A" text-anchor="start">yes</text>
+<line x1="382" y1="1304.0" x2="448" y2="1304.0" stroke="#B23A2B" stroke-width="2" marker-end="url(#arn)"/>
+<text x="390" y="1298.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B23A2B" text-anchor="start">no</text>
+<rect x="450" y="1277.0" width="270" height="54" rx="10" fill="#FDECE8" stroke="#B23A2B" stroke-width="2"/>
+<text x="585.0" y="1300.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#8E2A1E" text-anchor="middle">SCENARIO ANALYSIS ONLY</text>
+<text x="585.0" y="1318.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#5A2A24" text-anchor="middle">Intervention effect e is an assumption</text>
+<rect x="40" y="1368" width="340" height="60" rx="10" fill="#E9E6F5" stroke="#5B4B9A" stroke-width="2"/>
+<text x="54" y="1393" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F3A" text-anchor="start">8  Research decision</text>
+<text x="54" y="1414" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Next experiment, not deployment</text>
+<text x="585.0" y="784.0" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B23A2B" text-anchor="middle">GSE128981 is at this gate today</text>
+<rect x="40" y="1462" width="1040" height="70" rx="10" fill="#F4F7FA" stroke="#8AA0B5" stroke-width="2"/>
+<text x="54" y="1485" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#1E3550" text-anchor="start">Cross-cutting software layer</text>
+<text x="54" y="1505" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">FastAPI /api/v1 routers · SQLAlchemy + Alembic provenance (checksums, audits, runs, model versions) · pytest suites</text>
+<text x="54" y="1522" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#27364A" text-anchor="start">Nextflow runs the ML training script only; it does not orchestrate the other stages. A passing gate in code is not biological validation.</text>
+</svg>
