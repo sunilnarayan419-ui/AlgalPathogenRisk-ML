@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="t d">
+<title id="t">AlgalPathogenRisk-ML banner</title>
+<desc id="d">Project banner: stylised Chlamydomonas cells, an abstract expression-heatmap tile pattern and a small interaction network on a deep-navy background, with the project name, subtitle and a research-prototype maturity label. The graphics are schematic and contain no data.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B1F3A"/><stop offset="1" stop-color="#0F3550"/></linearGradient><radialGradient id="cell" cx="0.38" cy="0.35" r="0.8"><stop offset="0" stop-color="#8FD67A"/><stop offset="1" stop-color="#3E9B53"/></radialGradient><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7FD1CF"/></marker></defs>
+<rect width="1200" height="520" fill="url(#bg)"/>
+<rect x="0" y="514" width="1200" height="6" fill="#1AA6A6"/>
+<rect x="830" y="40" width="26" height="26" rx="4" fill="#2B7F8F" opacity="0.55"/>
+<rect x="860" y="40" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="890" y="40" width="26" height="26" rx="4" fill="#1B4F6B" opacity="0.55"/>
+<rect x="920" y="40" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="950" y="40" width="26" height="26" rx="4" fill="#1B4F6B" opacity="0.55"/>
+<rect x="980" y="40" width="26" height="26" rx="4" fill="#2B7F8F" opacity="0.55"/>
+<rect x="1010" y="40" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="1040" y="40" width="26" height="26" rx="4" fill="#1B4F6B" opacity="0.55"/>
+<rect x="830" y="70" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="860" y="70" width="26" height="26" rx="4" fill="#2B7F8F" opacity="0.55"/>
+<rect x="890" y="70" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="920" y="70" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="950" y="70" width="26" height="26" rx="4" fill="#2B7F8F" opacity="0.55"/>
+<rect x="980" y="70" width="26" height="26" rx="4" fill="#6BBF59" opacity="0.55"/>
+<rect x="1010" y="70" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="1040" y="70" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="830" y="100" width="26" height="26" rx="4" fill="#1B4F6B" opacity="0.55"/>
+<rect x="860" y="100" width="26" height="26" rx="4" fill="#E8604C" opacity="0.55"/>
+<rect x="890" y="100" width="26" height="26" rx="4" fill="#1B4F6B" opacity="0.55"/>
+<rect x="920" y="100" width="26" height="26" rx="4" fill="#2B7F8F" opacity="0.55"/>
+<rect x="950" y="100" width="26" height="26" rx="4" fill="#F2A33A" opacity="0.55"/>
+<rect x="980" y="100" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="1010" y="100" width="26" height="26" rx="4" fill="#6BBF59" opacity="0.55"/>
+<rect x="1040" y="100" width="26" height="26" rx="4" fill="#2B7F8F" opacity="0.55"/>
+<rect x="830" y="130" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="860" y="130" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="890" y="130" width="26" height="26" rx="4" fill="#2B7F8F" opacity="0.55"/>
+<rect x="920" y="130" width="26" height="26" rx="4" fill="#6BBF59" opacity="0.55"/>
+<rect x="950" y="130" width="26" height="26" rx="4" fill="#1AA6A6" opacity="0.55"/>
+<rect x="980" y="130" width="26" height="26" rx="4" fill="#1B4F6B" opacity="0.55"/>
+<rect x="1010" y="130" width="26" height="26" rx="4" fill="#1B4F6B" opacity="0.55"/>
+<rect x="1040" y="130" width="26" height="26" rx="4" fill="#2B7F8F" opacity="0.55"/>
+<text x="830" y="174" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#8FB3C8">schematic tile pattern, not data</text>
+<line x1="1085" y1="255" x2="1135" y2="232" stroke="#7FD1CF" stroke-width="1.6" opacity="0.55"/>
+<line x1="1135" y1="232" x2="1150" y2="300" stroke="#7FD1CF" stroke-width="1.6" opacity="0.55"/>
+<line x1="1150" y1="300" x2="1100" y2="345" stroke="#7FD1CF" stroke-width="1.6" opacity="0.55"/>
+<line x1="1085" y1="255" x2="1040" y2="318" stroke="#7FD1CF" stroke-width="1.6" opacity="0.55"/>
+<line x1="1040" y1="318" x2="1100" y2="345" stroke="#7FD1CF" stroke-width="1.6" opacity="0.55"/>
+<line x1="1040" y1="318" x2="1060" y2="385" stroke="#7FD1CF" stroke-width="1.6" opacity="0.55"/>
+<line x1="1085" y1="255" x2="1100" y2="345" stroke="#7FD1CF" stroke-width="1.6" opacity="0.55"/>
+<circle cx="1085" cy="255" r="10" fill="#0B1F3A" stroke="#7FD1CF" stroke-width="2"/>
+<circle cx="1135" cy="232" r="7" fill="#0B1F3A" stroke="#7FD1CF" stroke-width="2"/>
+<circle cx="1150" cy="300" r="7" fill="#0B1F3A" stroke="#7FD1CF" stroke-width="2"/>
+<circle cx="1100" cy="345" r="10" fill="#0B1F3A" stroke="#7FD1CF" stroke-width="2"/>
+<circle cx="1040" cy="318" r="7" fill="#0B1F3A" stroke="#7FD1CF" stroke-width="2"/>
+<circle cx="1060" cy="385" r="7" fill="#0B1F3A" stroke="#7FD1CF" stroke-width="2"/>
+<g transform="rotate(-14 880 318)">
+<path d="M867.68,277.52 q-14,-22 -2,-40 t-16,-34" fill="none" stroke="#8FD67A" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+<path d="M892.32,277.52 q14,-22 2,-40 t16,-34" fill="none" stroke="#8FD67A" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+<circle cx="880" cy="318" r="44" fill="url(#cell)" stroke="#CDEFC3" stroke-width="2"/>
+<path d="M852.72,324.6 A29.040000000000003,29.040000000000003 0 0 0 895.4,343.52 A39.6,39.6 0 0 1 852.72,324.6 z" fill="#1F6B3E" opacity="0.8"/>
+<circle cx="887.92" cy="312.72" r="9.68" fill="#0B1F3A" opacity="0.55"/>
+<circle cx="864.6" cy="300.4" r="4.4" fill="#F2A33A"/>
+</g>
+<g transform="rotate(10 972 330)">
+<path d="M963.04,300.56 q-14,-22 -2,-40 t-16,-34" fill="none" stroke="#8FD67A" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+<path d="M980.96,300.56 q14,-22 2,-40 t16,-34" fill="none" stroke="#8FD67A" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+<circle cx="972" cy="330" r="32" fill="url(#cell)" stroke="#CDEFC3" stroke-width="2"/>
+<path d="M952.16,334.8 A21.12,21.12 0 0 0 983.2,348.56 A28.8,28.8 0 0 1 952.16,334.8 z" fill="#1F6B3E" opacity="0.8"/>
+<circle cx="977.76" cy="326.16" r="7.04" fill="#0B1F3A" opacity="0.55"/>
+<circle cx="960.8" cy="317.2" r="3.2" fill="#F2A33A"/>
+</g>
+<g transform="rotate(-8 1030 342)">
+<path d="M1023.84,321.76 q-14,-22 -2,-40 t-16,-34" fill="none" stroke="#8FD67A" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+<path d="M1036.16,321.76 q14,-22 2,-40 t16,-34" fill="none" stroke="#8FD67A" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+<circle cx="1030" cy="342" r="22" fill="url(#cell)" stroke="#CDEFC3" stroke-width="2"/>
+<path d="M1016.36,345.3 A14.520000000000001,14.520000000000001 0 0 0 1037.7,354.76 A19.8,19.8 0 0 1 1016.36,345.3 z" fill="#1F6B3E" opacity="0.8"/>
+<circle cx="1033.96" cy="339.36" r="4.84" fill="#0B1F3A" opacity="0.55"/>
+<circle cx="1022.3" cy="333.2" r="2.2" fill="#F2A33A"/>
+</g>
+<text x="60" y="130" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" letter-spacing="1.6" fill="#7FD1CF">COMPUTATIONAL BIOLOGY · MACHINE LEARNING · SCIENTIFIC DECISION SUPPORT</text>
+<text x="60" y="205" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="58" font-weight="700" fill="#FFFFFF">AlgalPathogenRisk-ML</text>
+<text x="60" y="252" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="23" fill="#CFE3EE">Transcriptomic analysis and decision support for</text>
+<text x="60" y="284" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="23" fill="#CFE3EE">early vulnerability assessment of microalgal cultures</text>
+<rect x="60" y="316" width="560" height="34" rx="17" fill="none" stroke="#F2A33A" stroke-width="1.8"/>
+<text x="80" y="338" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="600" fill="#F6C27A" letter-spacing="0.6">RESEARCH PROTOTYPE · NO VALIDATED PATHOGEN-RISK MODEL</text>
+<rect x="60" y="420" width="168" height="44" rx="8" fill="#12385A" stroke="#2B7F8F" stroke-width="1.5"/>
+<text x="144.0" y="447" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#FFFFFF">GEO data + QC</text>
+<line x1="231" y1="442" x2="247" y2="442" stroke="#7FD1CF" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="250" y="420" width="168" height="44" rx="8" fill="#12385A" stroke="#2B7F8F" stroke-width="1.5"/>
+<text x="334.0" y="447" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#FFFFFF">Statistics / DE</text>
+<line x1="421" y1="442" x2="437" y2="442" stroke="#7FD1CF" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="440" y="420" width="168" height="44" rx="8" fill="#12385A" stroke="#2B7F8F" stroke-width="1.5"/>
+<text x="524.0" y="447" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#FFFFFF">ML (synthetic demo)</text>
+<line x1="611" y1="442" x2="627" y2="442" stroke="#7FD1CF" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="630" y="420" width="168" height="44" rx="8" fill="#12385A" stroke="#2B7F8F" stroke-width="1.5"/>
+<text x="714.0" y="447" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#FFFFFF">Networks</text>
+<line x1="801" y1="442" x2="817" y2="442" stroke="#7FD1CF" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="820" y="420" width="168" height="44" rx="8" fill="#12385A" stroke="#2B7F8F" stroke-width="1.5"/>
+<text x="904.0" y="447" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#FFFFFF">Economics scenarios</text>
+<text x="1016" y="447" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#8FB3C8">→ decision</text>
+</svg>
